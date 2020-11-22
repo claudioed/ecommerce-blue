@@ -1,0 +1,28 @@
+syntax = "proto3";
+
+option java_multiple_files = true;
+option java_package = "tech.claudioed.blue";
+option java_outer_classname = "Order";
+
+package tech.claudioed.blue;
+
+service OrderService {
+  rpc Request (RequestOrder) returns (RequestCreated) {}
+}
+
+
+message RequestOrder {
+  string customerId = 1;
+  string token = 2;
+  repeated Item items = 3;
+}
+
+message RequestCreated {
+  string id = 1;
+}
+
+message Item {
+  string productId = 1;
+  float quantity = 2;
+  float price = 3;
+}
